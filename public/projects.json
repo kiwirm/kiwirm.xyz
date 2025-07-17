@@ -1,0 +1,74 @@
+[
+  {
+    "name": "hybrid-lcdb-classifier",
+    "description": "Novel NZ land cover classifier using a hybrid of spectral and structural data",
+    "url": "https://github.com/kiwirm/hybrid-lcdb-classifier",
+    "tags": [
+      "r",
+      "geospatial",
+      "remote-sensing",
+      "image-processing"
+    ]
+  },
+  {
+    "name": "virtualtracker",
+    "description": "Gesture-controlled virtual DAW interface for controlling synthesizers using MediaPipe and TouchDesigner",
+    "url": "https://github.com/kiwirm/virtultracker",
+    "tags": [
+      "python",
+      "image-processing",
+      "ai-ml",
+      "music"
+    ]
+  },
+  {
+    "name": "oleague",
+    "description": "Leaderboard and interactive analysis tool for NZ orienteering events",
+    "url": "https://github.com/kiwirm/oleague",
+    "tags": [
+      "web",
+      "dataviz",
+      "orienteering"
+    ]
+  },
+  {
+    "name": "topomc",
+    "description": "Generate togographic maps from decoded binary videogame heightmap data",
+    "url": "https://github.com/kiwirm/topomc",
+    "tags": [
+      "r",
+      "python",
+      "geospatial",
+      "image-processing"
+    ]
+  },
+  {
+    "name": "kiwirm.xyz",
+    "description": "Personal website built with Next and D3",
+    "url": "https://github.com/kiwirm/kiwirm.xyz",
+    "tags": [
+      "web",
+      "dataviz"
+    ]
+  },
+  {
+    "name": "worldview",
+    "description": "Get a satellite image of a random location on Earth (from an XYZ tile server)",
+    "url": "https://github.com/kiwirm/worldview",
+    "tags": [
+      "r",
+      "geospatial",
+      "remote-sensing"
+    ]
+  },
+  {
+    "name": "nz-covid19-tracker",
+    "description": "Twitter bot tracking COVID-19 cases and vaccination rate throughout New Zealand",
+    "url": "https://github.com/kiwirm/nz-covid19-tracker",
+    "tags": [
+      "python",
+      "dataviz",
+      "twitter"
+    ]
+  }
+]

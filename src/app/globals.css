@@ -1,0 +1,98 @@
+@import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&display=swap");
+@import "../styles/tailwind.css";
+
+.gruvbox-dark {
+  --color-bg: #282828;
+  --color-fg: #ebdbb2;
+  --color-red: #fb4934;
+  --color-green: #b8bb26;
+  --color-blue: #83a598;
+  --color-yellow: #fabd2f;
+}
+
+.gruvbox-light {
+  --color-bg: #fbf1c7;
+  --color-fg: #3c3836;
+  --color-red: #9d0006;
+  --color-green: #79740e;
+  --color-blue: #076678;
+  --color-yellow: #b57614;
+}
+
+.monokai-dark {
+  --color-bg: #272822;
+  --color-fg: #f8f8f2;
+  --color-red: #f92672;
+  --color-green: #a6e22e;
+  --color-blue: #66d9ef;
+  --color-yellow: #fd971f;
+}
+
+.monokai-light {
+  --color-bg: #f8f8f2;
+  --color-fg: #272822;
+  --color-red: #f92672;
+  --color-green: #a6e22e;
+  --color-blue: #66d9ef;
+  --color-yellow: #fd971f;
+}
+
+.solarized-dark {
+  --color-bg: #002b36;
+  --color-fg: #eee8d5;
+  --color-red: #dc322f;
+  --color-green: #2aa198;
+  --color-blue: #268bd2;
+  --color-yellow: #b58900;
+}
+
+.solarized-light {
+  --color-bg: #fdf6e3;
+  --color-fg: #657b83;
+  --color-red: #dc322f;
+  --color-green: #2aa198;
+  --color-blue: #268bd2;
+  --color-yellow: #b58900;
+}
+
+.bg {
+  background-color: var(--color-bg);
+}
+.fg {
+  color: var(--color-fg);
+}
+.red {
+  color: var(--color-red);
+}
+.green {
+  color: var(--color-green);
+}
+.blue {
+  color: var(--color-blue);
+}
+.yellow {
+  color: var(--color-yellow);
+}
+
+/* Fira Code font utility */
+.font-fira-code {
+  font-family: "Fira Code", "Fira Mono", "Menlo", "Monaco", "Consolas",
+    "Liberation Mono", "Courier New", monospace;
+}
+
+.terminal-cursor {
+  display: inline-block;
+  width: 1ch;
+  animation: blink-cursor 1s steps(1) infinite;
+}
+
+@keyframes blink-cursor {
+  0%,
+  50% {
+    opacity: 1;
+  }
+  51%,
+  100% {
+    opacity: 0;
+  }
+}

@@ -1,0 +1,5 @@
+This is Ryan's personal website.
+I like using data to make things. I am interested in geospatial data, image processing, computer vision, data visualization, and am fascinated by the intersection between programming and art, by the synthetic and the organic.
+I am currently studying a Master of Geospatial Data Science (MGDS) at the University of Canterbury.
+I also have a sole trader business called geckomaps creating high detail maps for orienteering and adventure racing.
+In my free time I like to DJ, VJ, and go outside.
