@@ -8,6 +8,7 @@ import PerlinArt from "../components/PerlinArt";
 import HomeContent from "../components/HomeContent";
 import ProjectsContent from "../components/ProjectsContent";
 import PostsContent from "../components/PostsContent";
+import Prompt from "../components/Prompt";
 
 export default function Home() {
   const [open, setOpen] = useState<"home" | "projects" | "posts">("home");
@@ -17,8 +18,6 @@ export default function Home() {
 
   const [hoveredProject, setHoveredProject] = useState<string | null>(null);
   const [hoveredTag, setHoveredTag] = useState<string | null>(null);
-
-  const [date] = useState<string>(new Date().toString().slice(0, 24));
 
   useEffect(() => {
     fetch("/projects.json")
@@ -30,18 +29,13 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="font-fira-code font-mono max-w-screen-lg relative fg my-16">
-      <div className="fixed right-16 top-16">
+    <main className="font-fira-code font-mono max-w-screen-lg relative fg my-16 mr-10">
+      <div className="static right-16 top-16 lg:fixed mb-5">
         <SocialLinks />
         <ThemeSelector />
       </div>
       <div className="mb-6 ml-28">
-        <span className="inline-block">
-          Last login: {date} on ttys000
-          <br />
-          <span className="green">root@kiwirm.xyz</span>:
-          <span className="blue">~</span>$
-        </span>
+        <Prompt />
       </div>
       {[
         {
@@ -100,7 +94,7 @@ export default function Home() {
           </div>
         </div>
       ))}
-      <div className="fixed bottom-12 right-12 p-2">
+      <div className="bottom-12 right-12 p-2 hidden lg:fixed">
         {open === "home" && <PerlinArt />}
         {open === "projects" && (
           <ProjectsGraph

@@ -22,7 +22,7 @@ export default function ThemeSelector() {
           <Moon />
         </button>
       </div>
-      <div className="flex flex-col gap-2 items-end">
+      <div className="hidden xl:flex flex-col gap-2 items-end">
         {palettes.map((palette) => (
           <button
             key={palette}

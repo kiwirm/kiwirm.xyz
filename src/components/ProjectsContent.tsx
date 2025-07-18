@@ -10,12 +10,12 @@ export default function ProjectsContent({
   setHoveredTag: (tag: string | null) => void;
 }) {
   return (
-    <table>
+    <table className="w-full table-auto">
       <thead>
         <tr>
           <th className="font-normal text-left green">project</th>
-          <th className="font-normal text-left green">tags</th>
-          <th className="font-normal text-left w-6/12 green">description</th>
+          <th className="font-normal text-left green hidden md:table-cell">tags</th>
+          <th className="font-normal text-left green">description</th>
         </tr>
       </thead>
       <tbody>
@@ -33,7 +33,7 @@ export default function ProjectsContent({
                 {project.name}
               </Link>
             </td>
-            <td className="pr-4 align-top">
+            <td className="pr-4 align-top hidden md:table-cell">
               {project.tags && project.tags.length > 0 ? (
                 project.tags.map((tag: string, i: number) => (
                   <span
@@ -50,7 +50,7 @@ export default function ProjectsContent({
                 "No tags"
               )}
             </td>
-            <td className="align-top w-60">{project.description}</td>
+            <td className="align-top">{project.description}</td>
           </tr>
         ))}
       </tbody>
