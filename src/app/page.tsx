@@ -34,7 +34,7 @@ export default function Home() {
         <SocialLinks />
         <ThemeSelector />
       </div>
-      <div className="mb-6 ml-28">
+      <div className="mb-6 ml-10 sm:ml-28">
         <Prompt />
       </div>
       {[
@@ -70,8 +70,10 @@ export default function Home() {
         },
       ].map(({ label, command, content, onClick }) => (
         <div key={label} className="flex flex-row items-start mb-6">
-          <div className="w-28 inline-block select-none text-right pr-2">
-            {open === label ? command : ""}
+          <div className="w-10 sm:w-28 inline-block select-none text-right pr-2">
+            <span className="hidden sm:inline">
+              {open === label ? command : ""}
+            </span>
           </div>
           <div className="flex-1">
             <button
@@ -94,7 +96,7 @@ export default function Home() {
           </div>
         </div>
       ))}
-      <div className="bottom-12 right-12 p-2 hidden lg:fixed">
+      <div className="ml-10 bottom-12 right-12 p-2 lg:fixed">
         {open === "home" && <PerlinArt />}
         {open === "projects" && (
           <ProjectsGraph
