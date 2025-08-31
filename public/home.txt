@@ -1,5 +1,12 @@
-This is Ryan's personal website.
-I like using data to make things. I am interested in geospatial data, image processing, computer vision, data visualization, and am fascinated by the intersection between programming and art, synthetic and organic, order and chaos.
-I am currently studying a Master of Geospatial Data Science (MGDS) at the University of Canterbury.
-I also have a sole trader business called geckomaps creating high detail maps for orienteering and adventure racing.
-In my free time I like to DJ, VJ, and go outside.
+ryan moore
+==========
+
+programming <O> art | synthetic <O> organic | order <O> chaos | SR <O> OT
+[information is fundamental](10.1016/0303-2647(96)88368-7)
+
+##interests
+geospatial information, systems theory, remote sensing, computer vision, deep learning
+
+##study
+[master of geospatial data science](mgds) at the [university of canterbury](uc)
+

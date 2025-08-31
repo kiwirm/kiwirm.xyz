@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-export default function HomeContent() {
+export default function Home() {
   const [lines, setLines] = useState<string[]>([]);
 
   useEffect(() => {

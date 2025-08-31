@@ -1,74 +1,106 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import ThemeSelector from "../components/ThemeSelector";
-import ProjectsGraph from "../components/ProjectsGraph";
-import SocialLinks from "../components/SocialLinks";
-import PerlinArt from "../components/PerlinArt";
-import HomeContent from "../components/HomeContent";
-import ProjectsContent from "../components/ProjectsContent";
-import PostsContent from "../components/PostsContent";
-import Prompt from "../components/Prompt";
+import { useEffect, useState } from "react";
+import Home from "../content/Home";
+import Maps from "../content/Maps";
+import Posts from "../content/Posts";
+import Projects from "../content/Projects";
 
-export default function Home() {
-  const [open, setOpen] = useState<"home" | "projects" | "posts">("home");
+import Prompt from "../ui/Prompt";
+import SocialLinks from "../ui/SocialLinks";
+import ThemeSelector from "../ui/ThemeSelector";
 
-  const [projects, setProjects] = useState<any[]>([]);
+import HomeVisual from "../visuals/Home";
+import ProjectsVisual from "../visuals/Projects";
+import MapsVisual from "../visuals/Maps";
+import { Map, Project } from "../types/types";
+
+interface MenuItem {
+  label: "home" | "projects" | "geckomaps" | "posts" | "music";
+  command: string;
+  content: React.ReactNode | null;
+  visual: React.ReactNode | null;
+  onClick?: () => void;
+}
+
+export default function Page() {
+  const [open, setOpen] = useState<MenuItem["label"]>("home");
+
+  const [projects, setProjects] = useState<Project[]>([]);
+  const [maps, setMaps] = useState<Map[]>([]);
   const [posts, setPosts] = useState<string[]>([]);
 
   const [hoveredProject, setHoveredProject] = useState<string | null>(null);
   const [hoveredTag, setHoveredTag] = useState<string | null>(null);
+  const [hoveredMap, setHoveredMap] = useState<string | null>(null);
 
   useEffect(() => {
     fetch("/projects.json")
       .then((res) => res.json())
       .then((data) => setProjects(data));
+    fetch("/maps.json")
+      .then((res) => res.json())
+      .then((data) => setMaps(data));
     fetch("/api/posts-list")
       .then((res) => res.json())
       .then((data) => setPosts(data));
   }, []);
 
+  const menuItems: MenuItem[] = [
+    {
+      label: "home",
+      command: "cat",
+      content: <Home />,
+      visual: <HomeVisual />,
+    },
+    {
+      label: "projects",
+      command: "ls",
+      content: (
+        <Projects
+          projects={projects}
+          setHoveredProject={setHoveredProject}
+          setHoveredTag={setHoveredTag}
+        />
+      ),
+      visual: (
+        <ProjectsVisual
+          projects={projects}
+          hoveredProject={hoveredProject}
+          hoveredTag={hoveredTag}
+        />
+      ),
+    },
+    {
+      label: "maps",
+      command: "ls",
+      content: <Maps maps={maps} setHovered={setHoveredMap} />,
+      visual: <MapsVisual maps={maps} hovered={hoveredMap} />,
+    },
+    {
+      label: "posts",
+      command: "ls",
+      content: <Posts posts={posts} />,
+      visual: null,
+    },
+    {
+      label: "music",
+      command: "xdg-open",
+      content: null,
+      visual: null,
+      onClick: () => {
+        window.open("https://soundcloud.com/g3_cko");
+      },
+    },
+  ];
+
   return (
-    <main className="font-fira-code font-mono max-w-screen-lg relative fg my-16 mr-10">
-      <div className="static right-16 top-16 lg:fixed mb-5">
-        <SocialLinks />
-        <ThemeSelector />
+    <main>
+      <div className="ml-10 bottom-12 right-12 p-2 lg:fixed h-64 w-64">
+        {menuItems.find((item) => item.label === open)?.visual}
       </div>
-      <div className="mb-6 ml-10 sm:ml-28">
-        <Prompt />
-      </div>
-      {[
-        {
-          label: "home",
-          command: "cat",
-          content: <HomeContent />,
-        },
-        {
-          label: "projects",
-          command: "ls",
-          content: (
-            <ProjectsContent
-              projects={projects}
-              setHoveredProject={setHoveredProject}
-              setHoveredTag={setHoveredTag}
-            />
-          ),
-        },
-        { label: "geckomaps", command: "cd" },
-        {
-          label: "posts",
-          command: "ls",
-          content: <PostsContent posts={posts} />,
-        },
-        {
-          label: "music",
-          command: "xdg-open",
-          content: null,
-          onClick: () => {
-            window.open("https://soundcloud.com/g3_cko");
-          },
-        },
-      ].map(({ label, command, content, onClick }) => (
+
+      {menuItems.map(({ label, command, content, onClick }) => (
         <div key={label} className="flex flex-row items-start mb-6">
           <div className="w-10 sm:w-28 inline-block select-none text-right pr-2">
             <span className="hidden sm:inline">
@@ -96,15 +128,6 @@ export default function Home() {
           </div>
         </div>
       ))}
-      <div className="ml-10 bottom-12 right-12 p-2 lg:fixed">
-        {open === "home" && <PerlinArt />}
-        {open === "projects" && (
-          <ProjectsGraph
-            hoveredProject={hoveredProject}
-            hoveredTag={hoveredTag}
-          />
-        )}
-      </div>
     </main>
   );
 }

@@ -54,6 +54,12 @@
   --color-blue: #268bd2;
   --color-yellow: #b58900;
 }
+:root {
+  --stroke-node-hover: 3px;
+  --stroke-edge: 2px;
+  --radius-primary: 10px;
+  --radius-secondary: 7px;
+}
 
 .bg {
   background-color: var(--color-bg);

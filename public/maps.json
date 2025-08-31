@@ -1,0 +1,82 @@
+[
+    {
+        "name": "mt-cass.ocd",
+        "client": "PAPO",
+        "event": "NZOC 2025 Long",
+        "location": {
+            "lat": -43.0571,
+            "lon": 172.8607
+        },
+        "size": "9.5",
+        "hours": 388,
+        "terrain": "steep pine forest and farmland with some rock detail"
+    },
+    {
+        "name": "tu-manawa.zip",
+        "client": "Sport Canterbury",
+        "location": {
+            "lat": -43.8987,
+            "lon": 171.7510
+        },
+        "size": "N/A",
+        "hours": 84,
+        "terrain": "various school campus and parkland areas"
+    },
+    {
+        "name": "christchurch-central.ocd",
+        "client": "PAPO",
+        "event": "NZOC 2025 Sprint",
+        "location": {
+            "lat": -43.5302,
+            "lon": 172.6350
+        },
+        "size": "1",
+        "hours": 40,
+        "terrain": "park and city streets"
+    },
+    {
+        "name": "puarenga.ocd",
+        "client": "OBOP",
+        "event": "NZMTBOC 2019 Middle",
+        "location": {
+            "lat": -38.1689,
+            "lon": 176.2654
+        },
+        "size": "4.5",
+        "hours": 26,
+        "terrain": "parkland and steep pine forest with many MTB tracks"
+    },
+    {
+        "name": "sugarloaf.ocd",
+        "client": "CHS",
+        "location": {
+            "lat": -43.6031,
+            "lon": 172.6493
+        },
+        "size": "2.5",
+        "hours": 15,
+        "terrain": "steep farmland and forest"
+    },
+    {
+        "name": "chaneys.ocd",
+        "client": "Spring Challenge",
+        "location": {
+            "lat": -43.4165,
+            "lon": 172.6755
+        },
+        "size": "9.5",
+        "hours": 13,
+        "terrain": "flat pine forest with forestry roads"
+    },
+    {
+        "name": "eastxeast.ocd",
+        "client": "Life in Vacant Spaces",
+        "location": {
+            "lat": -43.4976,
+            "lon": 172.6949
+        },
+        "size": "0.5",
+        "hours": 12,
+        "terrain": "red zone parkland"
+    }
+]

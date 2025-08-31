@@ -103,7 +103,7 @@ const getZFromCursor = (e: MouseEvent) => {
   return x / screenWidth + y / screenHeight / 2;
 };
 
-const PerlinArt = () => {
+const HomeVisual = () => {
   const d3Container = useRef<SVGSVGElement | null>(null);
 
   useEffect(() => {
@@ -131,4 +131,4 @@ const PerlinArt = () => {
   return <svg ref={d3Container} />;
 };
 
-export default PerlinArt;
+export default HomeVisual;

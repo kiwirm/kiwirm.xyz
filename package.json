@@ -1,21 +1,14 @@
 {
-  "name": "my-static-blog",
-  "version": "1.0.0",
-  "description": "A static site generator for a blog using markdown and Tailwind CSS.",
+  "name": "kiwirm.xyz",
+  "version": "1.0.4",
+  "description": "ryan moore - personal website",
   "main": "index.js",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start"
   },
-  "keywords": [
-    "blog",
-    "static-site",
-    "markdown",
-    "tailwind-css"
-  ],
-  "author": "Your Name",
-  "license": "MIT",
+  "author": "Ryan Moore",
   "dependencies": {
     "d3": "^7.9.0",
     "gray-matter": "^4.0.3",
@@ -23,6 +16,7 @@
     "marked": "^16.0.0",
     "matter": "^0.2.0",
     "next": "^15.4.0",
+    "proj4": "^2.19.10",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "remark": "^13.0.0",

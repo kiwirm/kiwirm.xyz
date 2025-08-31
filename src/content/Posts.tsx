@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-export default function PostsContent({ posts }: { posts: string[] }) {
+export default function Posts({ posts }: { posts: string[] }) {
   return (
     <ul>
       no posts yet
