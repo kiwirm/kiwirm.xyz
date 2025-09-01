@@ -1,7 +1,9 @@
 import proj4 from "proj4";
 import { useMemo } from "react";
-import NZ from "../assets/NZ";
+
 import { Map } from "../types/types";
+
+import NZ from "../assets/NZ";
 
 const CANVAS_SIZE = 256;
 

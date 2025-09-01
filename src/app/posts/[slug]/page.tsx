@@ -1,20 +1,29 @@
-import fs from 'fs';
-import path from 'path';
-import matter from 'gray-matter';
-import { notFound } from 'next/navigation';
-import { markdownToHtml } from '../../../utils/markdownToHtml';
+import fs from "fs";
+import matter from "gray-matter";
+
+import { notFound } from "next/navigation";
+
+import path from "path";
+
+import { markdownToHtml } from "../../../utils/markdownToHtml";
 
 export async function generateStaticParams() {
-  const postsDir = path.join(process.cwd(), 'public/posts');
+  const postsDir = path.join(process.cwd(), "public/posts");
   const files = fs.readdirSync(postsDir);
-  return files.filter(f => f.endsWith('.md')).map(f => ({ slug: f.replace(/\.md$/, '') }));
+  return files
+    .filter((f) => f.endsWith(".md"))
+    .map((f) => ({ slug: f.replace(/\.md$/, "") }));
 }
 
-export default async function PostPage({ params }: { params: Promise<{ slug: string }> }) {
+export default async function PostPage({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
   const { slug } = await params;
-  const postPath = path.join(process.cwd(), 'public/posts', `${slug}.md`);
+  const postPath = path.join(process.cwd(), "public/posts", `${slug}.md`);
   if (!fs.existsSync(postPath)) return notFound();
-  const file = fs.readFileSync(postPath, 'utf8');
+  const file = fs.readFileSync(postPath, "utf8");
   const { content, data } = matter(file);
   const html = await markdownToHtml(content);
 

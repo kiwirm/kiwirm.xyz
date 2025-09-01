@@ -1,4 +1,5 @@
 import Link from "next/link";
+
 import { Map } from "../types/types";
 
 export default function Maps({

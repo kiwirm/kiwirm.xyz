@@ -1,6 +1,8 @@
 "use client";
-import { useEffect, useRef } from "react";
+
 import * as d3 from "d3";
+
+import { useEffect, useRef } from "react";
 
 const GRID_SIZE = 32;
 const GAUSSIAN_STDDEV = 4;
@@ -59,7 +61,9 @@ const perlin3d = (x: number, y: number, z: number, perm: Uint8Array) => {
 const gaussian = (x: number, y: number) => {
   const dx = x - (GRID_SIZE - 1) / 2;
   const dy = y - (GRID_SIZE - 1) / 2;
-  return Math.exp(-(dx * dx + dy * dy) / (2 * (GRID_SIZE / GAUSSIAN_STDDEV) ** 2));
+  return Math.exp(
+    -(dx * dx + dy * dy) / (2 * (GRID_SIZE / GAUSSIAN_STDDEV) ** 2)
+  );
 };
 
 const PIXEL_SIZE = CANVAS_SIZE / GRID_SIZE;
@@ -78,7 +82,12 @@ const drawPerlinArt = (svg: any, perm: Uint8Array, z: number) => {
   svg.selectAll("rect").remove();
   for (let y = 0; y < GRID_SIZE; y++) {
     for (let x = 0; x < GRID_SIZE; x++) {
-      const noise = perlin3d(x / PERLIN_RESOLUTION, y / PERLIN_RESOLUTION, z, perm);
+      const noise = perlin3d(
+        x / PERLIN_RESOLUTION,
+        y / PERLIN_RESOLUTION,
+        z,
+        perm
+      );
       const normalizedNoise = (noise + 1) / 2;
       const gaussianWeight = gaussian(x, y);
       const pixelValue = normalizedNoise * gaussianWeight;

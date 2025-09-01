@@ -1,4 +1,5 @@
 import Link from "next/link";
+
 import { Project } from "../types/types";
 
 export default function Projects({

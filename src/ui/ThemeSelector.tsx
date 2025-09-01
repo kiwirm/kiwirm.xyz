@@ -1,6 +1,8 @@
 "use client";
-import { Theme, useTheme, palettes } from "./ThemeProvider";
-import { Sun, Moon } from "lucide-react";
+
+import { Moon, Sun } from "lucide-react";
+
+import { palettes, Theme, useTheme } from "./ThemeProvider";
 
 export default function ThemeSelector() {
   const { theme, setTheme } = useTheme();

@@ -1,5 +1,12 @@
 "use client";
-import React, { createContext, useContext, useEffect, useState, ReactNode } from "react";
+
+import React, {
+  createContext,
+  useContext,
+  useEffect,
+  useState,
+  ReactNode,
+} from "react";
 
 export type Theme =
   | "monokai-light"
@@ -10,9 +17,9 @@ export type Theme =
   | "solarized-dark";
 
 export const palettes = ["gruvbox", "monokai", "solarized"];
-export const themes = palettes.flatMap(palette => [
+export const themes = palettes.flatMap((palette) => [
   `${palette}-light` as Theme,
-  `${palette}-dark` as Theme
+  `${palette}-dark` as Theme,
 ]);
 
 interface ThemeContextType {
@@ -22,15 +29,19 @@ interface ThemeContextType {
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
-export function ThemeProvider({ children }: { children: ReactNode }) {
+export default function ThemeProvider({ children }: { children: ReactNode }) {
   const [theme, setTheme] = useState<Theme>("gruvbox-dark");
 
   useEffect(() => {
-    const saved = typeof window !== "undefined" ? localStorage.getItem("theme") : null;
+    const saved =
+      typeof window !== "undefined" ? localStorage.getItem("theme") : null;
     if (saved && themes.includes(saved as Theme)) {
       setTheme(saved as Theme);
     } else {
-      if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) {
+      if (
+        window.matchMedia &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches
+      ) {
         setTheme("gruvbox-dark");
       } else {
         setTheme("gruvbox-light");

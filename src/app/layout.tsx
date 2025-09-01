@@ -1,9 +1,12 @@
-import "../styles/globals.css";
 import type { Metadata } from "next";
-import { ThemeProvider } from "../ui/ThemeProvider";
-import SocialLinks from "../ui/SocialLinks";
-import ThemeSelector from "../ui/ThemeSelector";
+
+import "../styles/globals.css";
+
 import Prompt from "../ui/Prompt";
+import SocialLinks from "../ui/SocialLinks";
+
+import ThemeProvider from "../ui/ThemeProvider";
+import ThemeSelector from "../ui/ThemeSelector";
 
 export const metadata: Metadata = {
   title: "root@kiwirm.xyz",
