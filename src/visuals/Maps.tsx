@@ -50,7 +50,7 @@ export default function MapsVisual({
   }, [maps]);
 
   return (
-    <div className="relative w-full flex justify-center items-center">
+    <>
       <NZ />
       <svg
         width={svgSize}
@@ -85,6 +85,6 @@ export default function MapsVisual({
             />
           ))}
       </svg>
-    </div>
+    </>
   );
 }
