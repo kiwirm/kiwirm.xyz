@@ -36,7 +36,7 @@ export default function Maps({
           >
             <td className="pr-4 align-top">
               <Link
-                href={`/maps/${omap.name.replace(/\.ocd$/, "")}`}
+                href={`/maps/${omap.name.replace(/(\.ocd|\.zip)$/, "")}`}
                 className="blue underline font-semibold"
               >
                 {omap.name}

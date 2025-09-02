@@ -10,7 +10,9 @@ export default function MapPage({
   const { slug } = params as any;
   const mapsPath = path.join(process.cwd(), "public/maps.json");
   const maps = JSON.parse(fs.readFileSync(mapsPath, "utf8"));
-  const map = maps.find((m: any) => m.name.replace(/\.ocd$/, "") === slug);
+  const map = maps.find(
+    (m: any) => m.name.replace(/(\.ocd|\.zip)$/, "") === slug
+  );
   if (!map) return notFound();
 
   const imagesDir = path.join(process.cwd(), "public/images", slug);
