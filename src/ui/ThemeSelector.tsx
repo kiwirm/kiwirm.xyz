@@ -14,7 +14,7 @@ export default function ThemeSelector() {
         <button
           onClick={() => setTheme((currentPalette + "-light") as Theme)}
           aria-label="Light mode"
-          className="hover:fg-secondary hover:underline"
+          className="hover-fg-secondary hover:underline"
         >
           <Sun />
         </button>
