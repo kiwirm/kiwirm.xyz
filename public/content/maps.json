@@ -1,0 +1,114 @@
+{
+    "name": "maps",
+    "relationName": "clients",
+    "rows": [
+        {
+            "key": "mt-cass",
+            "relations": {
+                "PAPO": "https://www.papo.org.nz/"
+            },
+            "data": {
+                "size": "9.5",
+                "hours": 388,
+                "terrain": "steep pine forest and farmland with some rock detail",
+                "event": "NZOC 2025 Long"
+            },
+            "location": {
+                "lat": -43.0571,
+                "lon": 172.8607
+            }
+        },
+        {
+            "key": "tu-manawa",
+            "relations": {
+                "Sport Canterbury": "https://www.sportcanterbury.org.nz/"
+            },
+            "data": {
+                "size": "N/A",
+                "hours": 84,
+                "terrain": "various school campus and parkland areas"
+            },
+            "location": {
+                "lat": -43.8987,
+                "lon": 171.7510
+            }
+        },
+        {
+            "key": "christchurch-central",
+            "relations": {
+                "PAPO": "https://www.papo.org.nz/"
+            },
+            "data": {
+                "size": "1",
+                "hours": 40,
+                "terrain": "park and city streets",
+                "event": "NZOC 2025 Sprint"
+            },
+            "location": {
+                "lat": -43.5302,
+                "lon": 172.6350
+            }
+        },
+        {
+            "key": "puarenga",
+            "relations": {
+                "OBOP": "https://www.obop.org.nz/"
+            },
+            "data": {
+                "size": "4.5",
+                "hours": 26,
+                "terrain": "parkland and steep pine forest with many MTB tracks",
+                "event": "NZMTBOC 2019 Middle"
+            },
+            "location": {
+                "lat": -38.1689,
+                "lon": 176.2654
+            }
+        },
+        {
+            "key": "sugarloaf",
+            "relations": {
+                "CHS": "https://www.cashmere.school.nz"
+            },
+            "data": {
+                "size": "2.5",
+                "hours": 15,
+                "terrain": "steep farmland and forest"
+            },
+            "location": {
+                "lat": -43.6031,
+                "lon": 172.6493
+            }
+        },
+        {
+            "key": "chaneys",
+            "relations": {
+                "Spring Challenge": "https://www.springchallenge.co.nz/"
+            },
+            "data": {
+                "size": "9.5",
+                "hours": 13,
+                "terrain": "flat pine forest with forestry roads"
+            },
+            "location": {
+                "lat": -43.4165,
+                "lon": 172.6755
+            }
+        },
+        {
+            "key": "eastxeast",
+            "relations": {
+                "Life in Vacant Spaces": "https://www.livs.org.nz/"
+            },
+            "data": {
+                "size": "0.5",
+                "hours": 12,
+                "terrain": "red zone parkland"
+            },
+            "location": {
+                "lat": -43.4976,
+                "lon": 172.6949
+            }
+        }
+    ]
+}

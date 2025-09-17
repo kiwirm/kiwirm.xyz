@@ -1,0 +1,25 @@
+{
+    "name": "music",
+    "relationName": "genre",
+    "rows": [
+        {
+            "key": "g3cko",
+            "url": "https://youtu.be/QOJzLW_NZJE",
+            "relations": {
+                "bass": null,
+                "techno": null,
+                "breaks": null
+            },
+            "data": {}
+        },
+        {
+            "key": "k1wi",
+            "url": "https://soundcloud.com/k1wirm",
+            "relations": {
+                "dub techno": null,
+                "ambient": null
+            },
+            "data": {}
+        }
+    ]
+}

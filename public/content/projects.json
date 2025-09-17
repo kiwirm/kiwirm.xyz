@@ -1,0 +1,92 @@
+{
+  "name": "projects",
+  "relationName": "tags",
+  "rows": [
+    {
+      "key": "hybrid-lcdb-classifier",
+      "relations": {
+        "r": null,
+        "geospatial": null,
+        "remote-sensing": null,
+        "image-processing": null
+      },
+      "data": {
+        "description": "Novel NZ land cover classifier using a hybrid of spectral and structural data"
+      },
+      "url": "https://github.com/kiwirm/hybrid-lcdb-classifier"
+    },
+    {
+      "key": "virtualtracker",
+      "relations": {
+        "python": null,
+        "image-processing": null,
+        "ai-ml": null,
+        "music": null
+      },
+      "data": {
+        "description": "Gesture-controlled virtual DAW interface for controlling synthesizers using MediaPipe and TouchDesigner"
+      },
+      "url": "https://github.com/kiwirm/virtultracker"
+    },
+    {
+      "key": "oleague",
+      "relations": {
+        "web": null,
+        "dataviz": null,
+        "orienteering": null
+      },
+      "data": {
+        "description": "Leaderboard and interactive analysis tool for NZ orienteering events"
+      },
+      "url": "https://github.com/kiwirm/oleague"
+    },
+    {
+      "key": "topomc",
+      "relations": {
+        "r": null,
+        "python": null,
+        "geospatial": null,
+        "image-processing": null
+      },
+      "data": {
+        "description": "Generate topographic maps from decoded binary videogame heightmap data"
+      },
+      "url": "https://github.com/kiwirm/topomc"
+    },
+    {
+      "key": "kiwirm.xyz",
+      "relations": {
+        "web": null,
+        "dataviz": null
+      },
+      "data": {
+        "description": "Personal website built with Next and D3"
+      },
+      "url": "https://github.com/kiwirm/kiwirm.xyz"
+    },
+    {
+      "key": "worldview",
+      "relations": {
+        "r": null,
+        "geospatial": null,
+        "remote-sensing": null
+      },
+      "data": {
+        "description": "Get a satellite image of a random location on Earth (from an XYZ tile server)"
+      },
+      "url": "https://github.com/kiwirm/worldview"
+    },
+    {
+      "key": "nz-covid19-tracker",
+      "relations": {
+        "python": null,
+        "dataviz": null,
+        "twitter": null
+      },
+      "data": {
+        "description": "Twitter bot tracking COVID-19 cases and vaccination rate throughout New Zealand"
+      },
+      "url": "https://github.com/kiwirm/nz-covid19-tracker"
+    }
+  ]
+}

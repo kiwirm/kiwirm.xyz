@@ -1,3 +1,67 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.stroke-hover {
+  stroke-width: var(--stroke-node-hover);
+}
+
+.bg {
+  background-color: var(--color-bg);
+}
+.fg {
+  color: var(--color-fg);
+}
+.fg-secondary {
+  color: var(--color-fg-secondary);
+}
+.red {
+  color: var(--color-red);
+}
+.green {
+  color: var(--color-green);
+}
+.blue {
+  color: var(--color-blue);
+}
+.yellow {
+  color: var(--color-yellow);
+}
+.blue-secondary {
+  color: var(--color-blue-secondary);
+}
+.yellow-secondary {
+  color: var(--color-yellow-secondary);
+}
+.red-secondary {
+  color: var(--color-red-secondary);
+}
+.green-secondary {
+  color: var(--color-green-secondary);
+}
+
+.hover-fg-secondary:hover {
+  color: var(--color-fg-secondary);
+}
+
+.font-fira-code {
+  font-family: "Fira Code", "Fira Mono", "Menlo", "Monaco", "Consolas",
+    "Liberation Mono", "Courier New", monospace;
+}
+
+.terminal-cursor {
+  display: inline-block;
+  width: 1ch;
+  animation: blink-cursor 1s steps(1) infinite;
+}
+
+@keyframes blink-cursor {
+  0%,
+  50% {
+    opacity: 1;
+  }
+  51%,
+  100% {
+    opacity: 0;
+  }
+}

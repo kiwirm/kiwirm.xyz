@@ -10,31 +10,34 @@ export default function ThemeSelector() {
 
   return (
     <>
-      <div className="flex gap-3 justify-end pb-3">
+      <nav aria-label="Theme mode" className="flex gap-3 justify-end pb-3">
         <button
           onClick={() => setTheme((currentPalette + "-light") as Theme)}
           aria-label="Light mode"
+          className="hover:fg-secondary hover:underline"
         >
           <Sun />
         </button>
         <button
           onClick={() => setTheme((currentPalette + "-dark") as Theme)}
           aria-label="Dark mode"
+          className="hover-fg-secondary hover:underline"
         >
           <Moon />
         </button>
-      </div>
-      <div className="hidden xl:flex flex-col gap-2 items-end">
+      </nav>
+      <ul className="hidden xl:flex flex-col gap-2 items-end">
         {palettes.map((palette) => (
-          <button
-            key={palette}
-            className={`${currentPalette === palette ? "underline" : ""}`}
-            onClick={() => setTheme((palette + "-" + currentMode) as Theme)}
-          >
-            {palette}
-          </button>
+          <li key={palette}>
+            <button
+              className={`hover:text-fg-secondary ${currentPalette === palette ? "underline" : "hover:underline"}`}
+              onClick={() => setTheme((palette + "-" + currentMode) as Theme)}
+            >
+              {palette}
+            </button>
+          </li>
         ))}
-      </div>
+      </ul>
     </>
   );
 }

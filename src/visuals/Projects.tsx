@@ -4,7 +4,7 @@ import * as d3 from "d3";
 
 import { useEffect, useRef } from "react";
 
-import { Project } from "../types/types";
+import { TableData } from "../types/types";
 
 const CANVAS_SIZE = 256;
 const EDGE_REPEL_MARGIN = 20;
@@ -26,15 +26,15 @@ interface Link {
   target: string;
 }
 
-const createGraphData = (projects: Project[]) => {
+const createGraphData = (projects: TableData) => {
   const nodes: Node[] = [];
   const links: Link[] = [];
   const tagSet = new Set<string>();
-  projects.forEach((project) => {
-    nodes.push({ id: project.name, type: "project", url: project.url });
-    project.tags.forEach((tag) => {
-      tagSet.add(tag);
-      links.push({ source: project.name, target: tag });
+  projects.rows.forEach((project) => {
+    nodes.push({ id: project.key, type: "project", url: project.url });
+    Object.keys(project.relations).forEach((relation) => {
+      tagSet.add(relation);
+      links.push({ source: project.key, target: relation });
     });
   });
   tagSet.forEach((tag) => nodes.push({ id: tag, type: "tag" }));
@@ -45,10 +45,14 @@ export default function projectsVisual({
   projects,
   hoveredProject,
   hoveredTag,
+  setHoveredProject,
+  setHoveredTag,
 }: {
-  projects: Project[];
-  hoveredProject: Project["name"] | null;
-  hoveredTag?: Project["tags"][number] | null;
+  projects: TableData;
+  hoveredProject: string | null;
+  hoveredTag?: string | null;
+  setHoveredProject: (name: string | null) => void;
+  setHoveredTag: (tag: string | null) => void;
 }) {
   const d3Container = useRef<SVGSVGElement | null>(null);
   const nodeSelectionRef = useRef<d3.Selection<
@@ -120,10 +124,27 @@ export default function projectsVisual({
       .on("mouseenter", function (_, d) {
         d3.select(this)
           .attr("stroke", "var(--color-fg)")
-          .attr("stroke-width", "var(--stroke-node-hover)");
+          .attr("stroke-width", "var(--stroke-node-hover)")
+          .attr(
+            "fill",
+            d.type === "project"
+              ? "var(--color-blue-secondary)"
+              : "var(--color-yellow-secondary)"
+          );
+        if (d.type === "project") setHoveredProject(d.id);
+        if (d.type === "tag") setHoveredTag(d.id as any);
       })
-      .on("mouseleave", function () {
-        d3.select(this).attr("stroke", "none").attr("stroke-width", 0);
+      .on("mouseleave", function (_, d) {
+        d3
+          .select(this)
+          .attr("stroke", "none")
+          .attr("stroke-width", 0)
+          .attr(
+            "fill",
+            d.type === "project" ? "var(--color-blue)" : "var(--color-yellow)"
+          );
+        if (d.type === "project") setHoveredProject(null);
+        if (d.type === "tag") setHoveredTag(null as any);
       })
       .call(
         d3
@@ -162,11 +183,11 @@ export default function projectsVisual({
   }, [projects]);
 
   useEffect(() => {
-    if (!nodeSelectionRef.current) return;
-    nodeSelectionRef.current
+    const node = nodeSelectionRef.current;
+    if (!node) return;
+    node
       .attr("stroke", (d) => {
-        if (d.type === "project" && hoveredProject === d.id)
-          return "--var(--color-fg)";
+        if (d.type === "project" && hoveredProject === d.id) return "var(--color-fg)";
         if (d.type === "tag" && hoveredTag === d.id) return "var(--color-fg)";
         return "none";
       })
@@ -176,6 +197,13 @@ export default function projectsVisual({
         if (d.type === "tag" && hoveredTag === d.id)
           return "var(--stroke-node-hover)";
         return 0;
+      })
+      .attr("fill", (d) => {
+        if (d.type === "project" && hoveredProject === d.id)
+          return "var(--color-blue-secondary)";
+        if (d.type === "tag" && hoveredTag === d.id)
+          return "var(--color-yellow-secondary)";
+        return d.type === "project" ? "var(--color-blue)" : "var(--color-yellow)";
       });
   }, [hoveredProject, hoveredTag]);
 

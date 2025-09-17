@@ -2,19 +2,28 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 
 export default function Prompt() {
   const pathname = usePathname();
+  const [now, setNow] = useState<string | null>(null);
+
+  useEffect(() => {
+    setNow(new Date().toString().slice(0, 24));
+  }, []);
+
   return (
-    <span className="inline-block">
+    <p className="inline-block">
       <span className="md:inline" suppressHydrationWarning={true}>
-        Last login: {new Date().toString().slice(0, 24)} on ttys000
+        {now && (<>
+          Last login: <time dateTime={new Date(now).toISOString()}>{now}</time> on ttys000
+        </>)}
       </span>
       <br />
       <Link href="/">
-        <span className="green">root@kiwirm.xyz</span>
-        <span className="blue">~{pathname !== "/" && pathname}</span>$
+        <strong className="green hover:text-green-secondary hover:underline">root@kiwirm.xyz</strong>
       </Link>
-    </span>
+      <span className="blue">~{pathname !== "/" && pathname}</span>$
+    </p>
   );
 }
