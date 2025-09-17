@@ -1,9 +1,9 @@
 import proj4 from "proj4";
 import { useMemo } from "react";
 
-import { Map } from "../types/types";
 
 import NZ from "../assets/NZ";
+import { TableData } from "../types/types";
 
 const CANVAS_SIZE = 256;
 
@@ -37,15 +37,15 @@ export default function MapsVisual({
   maps,
   hovered,
 }: {
-  maps: Map[];
+  maps: TableData;
   hovered: string | null;
 }) {
   const svgSize = 256;
 
   const locations = useMemo(() => {
-    return maps.map((map) => {
-      const [x, y] = wgs2svg([map.location.lon, map.location.lat]);
-      return { name: map.name, x, y };
+    return maps.rows.map((map) => {
+      const [x, y] = wgs2svg([map.location!.lon, map.location!.lat]);
+      return { name: map.key, x, y };
     });
   }, [maps]);
 

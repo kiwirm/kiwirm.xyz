@@ -59,7 +59,7 @@ const Nav = ({ home, projects, maps, posts, music }: PageClientProps) => {
       label: "maps",
       command: "ls",
       content: <Table table={maps} setHovered={setHoveredMap} hovered={hoveredMap} setHoveredRelation={setHoveredClient} hoveredRelation={hoveredClient} />,
-      visual: <MapsVisual maps={(maps as any).rows.map((r: any) => ({ name: r.key, location: r.location }))} hovered={hoveredMap} />,
+      visual: <MapsVisual maps={maps} hovered={hoveredMap} />,
     },
     {
       label: "posts",

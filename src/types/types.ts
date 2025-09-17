@@ -3,6 +3,7 @@ export interface TableRow {
   relations: Record<string, string | null>;
   data: Record<string, any>;
   url?: string;
+  location?: {lat: number; lon: number};
 }
 export interface Project {
   name: string,
@@ -12,7 +13,7 @@ export interface Project {
 export interface Map {
   name: string;
   relationName: string;
-  rows: (TableRow & { location?: { lat: number; lon: number } })[];
+  rows: TableRow[];
 }
 
 export type TableData = Project | Map;
